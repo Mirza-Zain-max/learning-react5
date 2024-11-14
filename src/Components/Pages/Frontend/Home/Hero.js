@@ -32,11 +32,7 @@ const Hero = () => {
                     </Col>
                 </Row>
             </Container>
-            <Fade cascade damping={0.2}>
-                <p>I enter first...</p>
-                <p>...then comes my turn...</p>
-                <p>...and finally you see me!</p>
-            </Fade>
+           
         </>
     )
 }
