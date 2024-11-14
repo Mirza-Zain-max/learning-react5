@@ -9,7 +9,7 @@ const Navbar1 = () => {
         <header>
             <Navbar expand="lg" className="bg-light navbar-light">
                 <Container>
-                    <Navbar.Brand href="#home" style={{ fontFamily: "Quella" }}>GREENMIND</Navbar.Brand>
+                    <Link to="/" className='mt-1 nav-link fs-4' style={{ fontFamily: "Quella" }}>GREENMIND</Link>
                     <Navbar.Toggle aria-controls="basic-lg-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className='ms-5 text-center nav-imgs'>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import group from '../../Assets/Group.png'
 import { SearchOutlined } from '@ant-design/icons'
-import { Fade } from 'react-awesome-reveal'
+// import { Fade } from 'react-awesome-reveal'
 
 
 const Hero = () => {
@@ -19,9 +19,9 @@ const Hero = () => {
                             </h3>
                         </Col>
                         <Row className="row">
-                            <Col sm={3} md={6} lg={8} class=" mb-3 w-75 " style={{ position: "relative" }}>
-                                <input type="text" class="form-control py-3 " placeholder="What are you looking for?" />
-                                <button class="btn btn-primary " style={{ position: "absolute", top: "3px", right: "8px", height: "50px" }} type="button">
+                            <Col sm={6} md={12} lg={8} class=" mb-3 w-75 " style={{ position: "relative" }}>
+                                <input type="text" class="form-control mt-2 mx-3 py-3 " placeholder="What are you looking for?" />
+                                <button class="btn btn-primary " style={{ position: "absolute", top: "12px", right: "6px", height: "50px" }} type="button">
                                     <SearchOutlined />
                                 </button>
                             </Col>
