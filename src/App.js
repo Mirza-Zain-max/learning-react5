@@ -5,11 +5,11 @@ import Routes from './Components/Pages/Routes'
 
 function App() {
   return (
-    <ConfigProvider theme={{token: {colorPrimary: '#21625a'}}} >
-      <Routes/>
+    <ConfigProvider theme={{ token: { colorPrimary: '#21625a' } }} >
+      <Routes />
     </ConfigProvider>
   )
-  ;
+    ;
 }
 
 export default App;

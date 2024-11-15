@@ -14,8 +14,8 @@ const Navbar1 = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className='ms-5 text-center nav-imgs'>
                             <Nav.Link className='ms-4' to="/">Home</Nav.Link>
-                            <Nav.Link className='ms-4' to="/product">Product</Nav.Link>
-                            <Nav.Link className='ms-4' to="/contacts">Contacts</Nav.Link>
+                            <Nav.Link className='ms-4' to="product">Product</Nav.Link>
+                            <Nav.Link className='ms-4' to="contacts">Contacts</Nav.Link>
                         </Nav>
                         <Nav className='ms-auto d-flex justify-content-center align-items-center bg-light'>
                             <NavDropdown title="Account" className='mt-1 ms-sm-5 ms-md-5 d-flex justify-content-center align-items-center' id="basic-nav-dropdown">

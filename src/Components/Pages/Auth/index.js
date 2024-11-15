@@ -7,13 +7,12 @@ import Frogot from './Forgot'
 const index = () => {
   return (
     <>
-    
-        <Routes>
-            <Route path='login' element={<Login/>}/>
-            <Route path='register' element={<Register/>}/>
-            <Route path='forgot' element={<Frogot/>}/>
-        </Routes>
-    
+      <Routes>
+        <Route path='login' element={<Login />} />
+        <Route path='register' element={<Register />} />
+        <Route path='forgot' element={<Frogot />} />
+      </Routes>
+
     </>
   )
 }

@@ -20,7 +20,7 @@ const Hero = () => {
                         </Col>
                         <Row className="row">
                             <Col sm={6} md={12} lg={8} class=" mb-3 w-75 p-sm-3 " style={{ position: "relative" }}>
-                                <input type="text" class="form-control mt-2  ms-sm-3 ms-md-2 py-3 " placeholder="What are you looking for?" />
+                                <input type="text" class="form-control mt-2  ms-sm-3 ms-md-2` py-3 " placeholder="What are you looking for?" />
                                 <button class="btn btn-primary " style={{ position: "absolute", top: "12px", right: "12px", height: "50px" }} type="button">
                                     <SearchOutlined />
                                 </button>

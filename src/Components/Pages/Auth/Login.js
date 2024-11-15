@@ -1,28 +1,49 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
-import { Col, Row, Button, Input, Form, message} from 'antd'
+import { Col, Row, Button, Input, Form, message } from 'antd'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../Config/firebase'
 import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 
 
 const Login = () => {
 
-    const [state, steState] = useState({ email: "", password: "" })
+    const initialState = { email: "", password: "" }
 
-   
+    const [state, setState] = useState(initialState)
 
-    const handleChange = e => steState({ ...state, [e.target.name]: e.target.value })
+    const [isProcessing, setIsProcessing] = useState(false)
+
+    // const [fullName, setFullName] = useState("")
+    // const [email, setEmail] = useState("")
+    // const [password, setPassword] = useState("")
+    // const [confirmPassword, setConfirmPassword] = useState("")
+
+    const handleChange = e => setState({ ...state, [e.target.name]: e.target.value })
 
     const handleSubmit = e => {
         e.preventDefault();
 
-        let {  email, password } = state
+        let { email, password } = state
 
-        if (!window.isEmail(email)) { return message.error("Please Enter Your Email Correct") }
-        if (password.length < 8) { return message.error("Password Does Not Match") }
-        const user = { email, password }
-        console.log('user', user)
+
+        setIsProcessing(true)
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log('user', user)
+                message.success("User is Successfully  Login ", user)
+            })
+            .catch((user) => {
+                message.error("This Account Can't Register", user)
+            })
+            .finally(() => {
+                setIsProcessing(false)
+            })
+                isProcessing(false)
     }
+
     return (
         <main className='auth p-3 p-md-4 p-lg-5'>
             <Container>
@@ -45,8 +66,13 @@ const Login = () => {
                                 </Form.Item>
                             </Col>
                             <Col span={24}>
-                                <Button type='primary' htmlType='submit' onClick={handleSubmit} className='w-100'>Login</Button>
-                                <Link to='/auth/forgot' className=' my-2 d-flex justify-content-center align-items-center  nav-link'>Forgot Password</Link>
+                                <Button type='primary' htmlType='submit' onClick={handleSubmit} loading={isProcessing} className='w-100'>Login</Button>
+                            </Col>
+                            <Col span={12}>
+                                <Link to='/auth/forgot' className=' my-2 text-center  nav-link'>Forgot Password</Link>
+                            </Col>
+                            <Col span={12}>
+                                <Link to='/auth/register' className=' my-2 text-center  nav-link'>Register Account</Link>
                             </Col>
                         </Row>
                     </Form>
