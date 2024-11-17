@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import { ConfigProvider } from 'antd';
-import Routes from './Components/Pages/Routes'
+import Routes from './Components/Pages/routes/Routes'
 
 function App() {
   return (

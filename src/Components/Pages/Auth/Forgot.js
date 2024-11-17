@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
-import { Col, Row, Input, Form, message} from 'antd'
+import { Col, Row, Input, Form, message } from 'antd'
+import { useNavigate } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 
 
 const Frogot = () => {
 
-    const [state, steState] = useState({ email: "" })
+    const navigate = useNavigate()
 
-   
+    const [state, steState] = useState({ email: "" })
 
     const handleChange = e => steState({ ...state, [e.target.name]: e.target.value })
 
     const handleSubmit = e => {
         e.preventDefault();
 
-        let {  email } = state
+        let { email } = state
 
         if (!window.isEmail(email)) { return message.error("Please Enter Your Email Correct") }
         const user = { email }
@@ -38,7 +39,10 @@ const Frogot = () => {
                                 </Form.Item>
                             </Col>
                             <Col span={24}>
-                                <Button  htmlType='submit' onClick={handleSubmit} className='w-100 bg-danger text-light'>Submit</Button>
+                                <Button htmlType='submit' onClick={handleSubmit} className='w-100 bg-danger text-light'>Submit</Button>
+                            </Col>
+                            <Col span={24} className='d-flex justify-content-center align-items-center'>
+                                <Button htmlType='submit' onClick={() => navigate(-1)} className='text-center mt-3'  >Back To Page</Button>
                             </Col>
                         </Row>
                     </Form>
