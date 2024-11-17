@@ -19,8 +19,7 @@ const Frogot = () => {
         let { email } = state
 
         if (!window.isEmail(email)) { return message.error("Please Enter Your Email Correct") }
-        const user = { email }
-        console.log('user', user)
+   
     }
     return (
         <main className='auth p-3 p-md-4 p-lg-5'>
