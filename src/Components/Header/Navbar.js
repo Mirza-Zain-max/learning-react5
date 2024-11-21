@@ -10,7 +10,7 @@ const Navbar1 = () => {
     })
     return (
         <header>
-            <Navbar expand="lg" className="bg-light navbar-light">
+            <Navbar expand="lg" className="bg-light  navbar-light">
                 <Container>
                     <Link to="/" className='mt-1 nav-link fs-4' style={{ fontFamily: "Quella" }}>GREENMIND</Link>
                     <Navbar.Collapse id="basic-navbar-nav">

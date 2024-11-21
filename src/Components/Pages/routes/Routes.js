@@ -12,7 +12,6 @@ const Index = () => {
     <>
       <Routes>
         <Route path='/*' element={<FrontendIndex />} />
-
         <Route path='/private' element={<PrivateRoutes />}>
         </Route>
         <Route path='/auth/*' element={<PublicRoutes />}>

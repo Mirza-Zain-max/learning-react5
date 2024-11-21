@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { Col, Row, Input, Form, message } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { sendPasswordResetEmail } from 'firebase/auth'
+import { auth } from 'Components/Config/firebase'
 // import { Link } from 'react-router-dom'
 
 
@@ -10,6 +12,8 @@ const Frogot = () => {
     const navigate = useNavigate()
 
     const [state, steState] = useState({ email: "" })
+    const [isProcessing, setIsProcessing] = useState(false)
+
 
     const handleChange = e => steState({ ...state, [e.target.name]: e.target.value })
 
@@ -17,8 +21,19 @@ const Frogot = () => {
         e.preventDefault();
 
         let { email } = state
+        setIsProcessing(true)
 
-        if (!window.isEmail(email)) { return message.error("Please Enter Your Email Correct") }
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+                message.success("Email send  Successfully")
+            })
+            .catch(() => {
+                message.error("This Account Can't Register")
+            })
+            .finally(() => {
+                setIsProcessing(false)
+            })
+
    
     }
     return (

@@ -9,6 +9,7 @@ const isLogin = localStorage.getItem('user-login')
 const initialState = { isAuth: isLogin || false, user: {} }
 const AuthProvider = ({ children }) => {
     const [state, dispatch] = useState(initialState)
+    const [isAppLoading,setIsAppLoading] = useState(true)
     useEffect(()=>{
         onAuthStateChanged(auth, (user) => {
            if (user) {
@@ -23,6 +24,7 @@ const AuthProvider = ({ children }) => {
               // ...
                 console.log('User is log out')
             }
+           setTimeout(()=>{setIsAppLoading(false)},1000)
           });
     },[])
 
@@ -40,7 +42,7 @@ const AuthProvider = ({ children }) => {
 
     }
     return (
-        <AuthContext.Provider value={{ ...state,  dispatch , handleLogout }}>
+        <AuthContext.Provider value={{ ...state,  isAppLoading, dispatch , handleLogout }}>
             {children}
         </AuthContext.Provider>
     )
