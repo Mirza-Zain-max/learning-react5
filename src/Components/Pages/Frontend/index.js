@@ -1,8 +1,9 @@
 import React from 'react'
 // import Header from '../../Header'
-import Home from './Home'
-import Footer from '../../Footer'
 import NavHeader from 'Components/navHeader/navHeader'
+import Home from './Home'
+import About from '../About'
+import Footer from '../../Footer'
 
 const FrontendIndex = () => {
   return (
@@ -11,8 +12,8 @@ const FrontendIndex = () => {
       {/* <Header /> */}
       <NavHeader />
       <Home />
+      <About/>
       <Footer />
-
     </>
   )
 }

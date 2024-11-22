@@ -1,10 +1,10 @@
 import React from 'react'
-import About from './AboutPage'
+// import AboutUs from './AboutPage'
 
 const index = () => {
   return (
     <main>
-    <About/>
+    {/* <AboutUs/> */}
     </main>
   )
 }
