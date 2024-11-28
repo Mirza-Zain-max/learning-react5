@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { Col, Row, Button, Input, Form, message } from 'antd'
-import { auth } from '../../Config/firebase'
+import { auth, fireStore } from '../../Config/firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { Link } from 'react-router-dom'
 import { Fade } from 'react-awesome-reveal'
+import {  doc, setDoc } from 'firebase/firestore'
 // import { auth } from 'Components/Config/firebase'
 
 
@@ -16,20 +17,17 @@ const Register = () => {
     const [state, dispatch] = useState(initialState)
 
     const [isProcessing, setIsProcessing] = useState(false)
-    
+
     // const [fullName, setFullName] = useState("")
     // const [email, setEmail] = useState("")
     // const [password, setPassword] = useState("")
     // const [confirmPassword, setConfirmPassword] = useState("")
-    
+
     const handleChange = e => dispatch({ ...state, [e.target.name]: e.target.value })
-    
-    const createDoucment = userData => {
-        console.log('userData', userData)
-    }
+
     const handleSubmit = e => {
         e.preventDefault();
-
+        
         let { fullName, email, password, confirmPassword } = state
         fullName = fullName.trim()
 
@@ -37,11 +35,10 @@ const Register = () => {
         // if (isEmail(email)) { return message.error("Please Enter Your Email Correct") }
         if (password.length < 8) { return message.error("Password Must be atleast 8 Chars.") }
         if (confirmPassword !== password) { return message.error("Password does't match.") }
-
+        
         const userData = { uid: "", fullName, email, password, confirmPassword }
-        setIsProcessing(true)
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+        .then((userCredential) => {
                 const user = userCredential.user;
                 message.success("User is Successfully  Register ")
                 localStorage.setItem('user-login', true)
@@ -50,13 +47,24 @@ const Register = () => {
             })
             .catch((error) => {
                 message.error("Account Is AlReady Register", error)
-            }).finally(()=>{
-                setIsProcessing(false)
             })
-    
-        createDoucment(userData)
+
+            createDoucment(userData)
     }
 
+                const createDoucment = async (userData) => {
+                    const user ={...userData}
+                    try {
+                        // const docRef = await addDoc(collection(fireStore, "users"),userData);
+                        await setDoc(doc(fireStore, "user", user.uid),user)
+                        // console.log("Document written with ID: ", docRef.id);
+                        message.success("user added successfully")
+                    } catch (e) {
+                        console.error("Error adding document: ", e);
+                    } finally {
+                     setIsProcessing(false)   
+                    }
+                }
     return (
         <main className='auth p-3 p-md-4 p-lg-5'>
             <Fade cascade damping={0.1}>

@@ -20,7 +20,7 @@ const Hero = () => {
                                     <br /> <span className='fs-3'>Plant Species | Customers </span>
                                 </h3>
                             </Col>
-                            <Row className="row mb-3">
+                            <Row className="row mt-3">
                                 <Col xs={12} md={6} lg={8} className=" ">
                                     <div style={{ position: "relative" }}>
                                         <Input type="text" className="form-control py-3 " placeholder="What are you looking for?" />

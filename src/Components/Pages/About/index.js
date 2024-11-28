@@ -1,12 +1,15 @@
 import React from 'react'
-import About from './AboutPage'
+import AboutPage from './AboutPage'
+import { Route, Routes } from 'react-router-dom'
 
-const index = () => {
+const Index = () => {
   return (
-    <main>
-    <About/>
-    </main>
+  <main>
+      <Routes>
+      <Route path='about' element={<AboutPage/>}/>
+    </Routes>
+  </main>
   )
 }
 
-export default index
+export default Index
