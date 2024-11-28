@@ -1,0 +1,11 @@
+.card-hover {
+    border: none;
+    transition: all 0.7s;
+
+}
+
+.card-hover:hover {
+    cursor: pointer;
+    border: 1px solid #093637;
+    box-shadow: 10px 10px 5px 0px #093637;
+}

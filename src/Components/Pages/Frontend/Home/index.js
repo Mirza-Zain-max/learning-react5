@@ -1,16 +1,16 @@
 import React from 'react'
 import Hero from './Hero'
-import About from './CardSection'
-import AboutUs from './CardSection-2'
 import Categories from './Categories'
 import Customer from './Customer'
+import CardSection from './CardSection'
+import CardSection2 from './CardSection-2'
 
 const index = () => {
     return (
         <main>
             <Hero />
-            <About/>
-            <AboutUs/>
+            <CardSection/>
+            <CardSection2/>
             <Categories/>
             <Customer/>
         </main>

@@ -1,11 +1,14 @@
 import React from 'react'
 
-const AboutUs = () => {
+const AboutPage = () => {
   return (
-    <>
-    this is about pages
-    </>
+    <main>
+      <h1>
+
+        this is about pages
+      </h1>
+    </main>
   )
 }
 
-export default AboutUs
+export default AboutPage
